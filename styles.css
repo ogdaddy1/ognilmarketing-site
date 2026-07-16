@@ -108,7 +108,7 @@ a:focus-visible, button:focus-visible {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(4rem, 8vw, 7rem);
+  padding: clamp(2.4rem, 6vw, 4rem) 0 clamp(2.2rem, 5vw, 3.4rem);
   overflow: hidden;
 }
 .hero__watermark {
@@ -122,31 +122,31 @@ a:focus-visible, button:focus-visible {
   user-select: none;
 }
 .hero__inner { position: relative; }
-.hero .tag { margin-bottom: 1.6rem; }
+.hero .tag { margin-bottom: 1.2rem; }
 .hero h1 {
   font-family: var(--display);
   font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(3.4rem, 10.5vw, 8.2rem);
+  font-size: clamp(2.6rem, 8vw, 5.6rem);
   line-height: 0.95;
   letter-spacing: 0.01em;
   color: var(--ink);
 }
 .hero h1 .accent { color: var(--red); }
 .hero__sub {
-  margin-top: 1.6rem;
+  margin-top: 1.1rem;
   max-width: 34em;
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 500;
 }
 .hero__rule {
-  width: 88px;
-  height: 6px;
+  width: 72px;
+  height: 5px;
   background: var(--red);
-  margin-top: 2.2rem;
+  margin-top: 1.4rem;
 }
 .hero__domain {
-  margin-top: 1.1rem;
+  margin-top: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -183,64 +183,50 @@ a:focus-visible, button:focus-visible {
 /* ---------- Signature athlete ---------- */
 .athlete {
   position: relative;
-  padding: clamp(3.5rem, 7vw, 6rem) 0 0;
+  padding: clamp(1.6rem, 3.5vw, 2.4rem) 0;
+  background: var(--white);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
   overflow: hidden;
 }
 .athlete__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(1.2rem, 4vw, 3rem);
+  align-items: center;
 }
-.athlete__copy { padding-bottom: clamp(3rem, 6vw, 5.5rem); }
 .athlete__script {
   font-family: var(--script);
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
   color: var(--red);
   line-height: 1;
-  margin: 1.4rem 0 0.4rem;
+  margin: 0 0 0.3rem;
 }
 .athlete h2 {
   font-family: var(--display);
   font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 0.98;
   color: var(--ink);
 }
 .athlete__meta {
-  margin-top: 0.9rem;
+  margin-top: 0.5rem;
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: var(--red);
-}
-.athlete__blurb {
-  margin-top: 1.4rem;
-  max-width: 30em;
-  font-weight: 500;
 }
 .athlete__figure {
   position: relative;
-  align-self: end;
-}
-.athlete__figure::before {
-  content: "";
-  position: absolute;
-  left: 6%;
-  bottom: 0;
-  width: 78%;
-  height: 68%;
-  border: 3px solid var(--red);
-  z-index: 0;
+  align-self: center;
+  justify-self: center;
 }
 .athlete__figure img {
-  position: relative;
-  z-index: 1;
   width: auto;
   max-width: 100%;
-  max-height: min(78vh, 680px); /* vertical PNG: cap height, let width follow */
+  max-height: clamp(220px, 32vw, 380px); /* vertical PNG: cap height, keep the whole section short */
   margin: 0 auto;
   object-fit: contain;
 }
@@ -335,7 +321,6 @@ a:focus-visible, button:focus-visible {
   flex-wrap: wrap;
 }
 .footer__brand img { height: 62px; width: auto; }
-.footer__helmet img { height: 74px; width: auto; }
 .footer__meta {
   font-size: 0.8rem;
   font-weight: 600;
@@ -378,9 +363,12 @@ a:focus-visible, button:focus-visible {
   .nav__links li { width: 100%; }
   .nav__links a { display: block; padding: 0.9em 0; border-bottom: none; }
   .strip__grid { grid-template-columns: 1fr 1fr; }
-  .athlete__grid { grid-template-columns: 1fr; }
-  .athlete__copy { padding-bottom: 0; }
-  .athlete__figure { margin-top: 2rem; }
+  .athlete__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+  .athlete__figure { order: -1; }
 }
 @media (max-width: 520px) {
   .strip__grid { grid-template-columns: 1fr; }
