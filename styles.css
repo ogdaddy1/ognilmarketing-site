@@ -111,6 +111,8 @@ a:focus-visible, button:focus-visible {
   overflow: hidden;
   display: flex;
   align-items: center;
+  /* explicit height: the pre-cropped (head-to-waist) image scales to fill it */
+  height: clamp(300px, 56vw, 820px);
 }
 .hero__watermark {
   position: absolute;
@@ -168,21 +170,20 @@ a:focus-visible, button:focus-visible {
   font-size: clamp(0.62rem, 1.2vw, 0.8rem);
   color: var(--red);
 }
-/* Julius bleeds to the right, top, and bottom edges of the hero, on the
-   same line as the copy at every width. A fixed aspect-ratio keeps his
-   crop identical on mobile and desktop; overflow:hidden clips him flush
-   with the mission section below. */
+/* The image asset is pre-cropped head-to-waist (no lower body exists in the
+   file), so it can render whole at any size. It fills the hero height,
+   anchored bottom-right: the waist sits flush on the mission boundary. */
 .hero__athlete {
   position: relative;
   flex: 1 1 auto;
   min-width: 0;
-  aspect-ratio: 2.1 / 1;
+  align-self: stretch;
 }
 .hero__athlete img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 50% 0%; /* top of the frame: helmet stays in view, body crops out at the bottom */
+  object-fit: contain;
+  object-position: right bottom;
   display: block;
 }
 
@@ -348,9 +349,4 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 520px) {
   .strip__grid { grid-template-columns: 1fr; }
   .footer__inner { justify-content: center; text-align: center; }
-}
-@media (max-width: 600px) {
-  /* below this width the text column is taller than the zoomed-in crop;
-     top-align so Julius still bleeds flush with the nav instead of floating centered */
-  .hero { align-items: flex-start; }
 }
