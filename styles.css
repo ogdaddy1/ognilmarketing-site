@@ -108,8 +108,10 @@ a:focus-visible, button:focus-visible {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: clamp(2.4rem, 6vw, 4rem) 0 clamp(2.2rem, 5vw, 3.4rem);
   overflow: hidden;
+  min-height: clamp(420px, 58vh, 600px);
+  display: flex;
+  align-items: center;
 }
 .hero__watermark {
   position: absolute;
@@ -121,13 +123,15 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
   user-select: none;
 }
-.hero__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  align-items: center;
-  gap: clamp(1.6rem, 4vw, 3rem);
+.hero__copy-wrap {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2.4rem, 6vw, 4rem) 0 clamp(2.2rem, 5vw, 3.4rem);
 }
-.hero__copy { position: relative; }
+.hero__copy {
+  position: relative;
+  max-width: min(520px, 92%);
+}
 .hero .tag { margin-bottom: 1.2rem; }
 .hero h1 {
   font-family: var(--display);
@@ -159,44 +163,22 @@ a:focus-visible, button:focus-visible {
   font-size: 0.8rem;
   color: var(--red);
 }
+/* Julius bleeds to the right, top, and bottom edges of the hero;
+   the section's overflow:hidden clips him at the mission boundary. */
 .hero__athlete {
-  position: relative;
-  justify-self: center;
-  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  z-index: 1;
 }
 .hero__athlete img {
-  width: auto;
-  max-width: 100%;
-  max-height: clamp(320px, 42vw, 620px); /* vertical PNG: larger, hero-scale feature */
-  margin: 0 auto;
-  object-fit: contain;
-}
-.hero__athlete figcaption {
-  margin-top: 0.7rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-.hero__athlete-script {
-  font-family: var(--script);
-  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
-  color: var(--red);
-  line-height: 1;
-}
-.hero__athlete-name {
-  font-family: var(--display);
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: clamp(1.25rem, 2.6vw, 1.8rem);
-  color: var(--ink);
-  line-height: 1;
-}
-.hero__athlete-meta {
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  color: var(--red);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%; /* top of the frame: helmet stays in view, body crops out at the bottom */
+  display: block;
 }
 
 /* ---------- Mission band ---------- */
@@ -357,12 +339,18 @@ a:focus-visible, button:focus-visible {
   .nav__links li { width: 100%; }
   .nav__links a { display: block; padding: 0.9em 0; border-bottom: none; }
   .strip__grid { grid-template-columns: 1fr 1fr; }
-  .hero__grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-items: center;
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
   }
-  .hero__athlete img { max-height: 62vw; }
+  .hero__copy-wrap { padding-bottom: 0; }
+  .hero__athlete {
+    position: relative;
+    top: auto; right: auto; bottom: auto;
+    width: 100%;
+    height: clamp(260px, 62vw, 420px);
+  }
 }
 @media (max-width: 520px) {
   .strip__grid { grid-template-columns: 1fr; }
