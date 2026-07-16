@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OG Athlete Marketing &amp; NIL Consulting — Coming Soon</title>
+  <meta name="description" content="OG Athlete Marketing & NIL Consulting empowers student-athletes to optimize their NIL potential. Full site coming soon.">
+  <link rel="icon" type="image/png" href="assets/og_mark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="nav__logo" href="index.html" aria-label="OG Athlete Marketing & NIL Consulting — Home">
+        <img src="assets/og_mark.png" alt="OG logo">
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+      <ul class="nav__links" id="site-menu">
+        <li><a href="players.html">Players</a></li>
+        <li><a href="clients-partners.html">Clients &amp; Partners</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <img class="hero__watermark" src="assets/og_mark.png" alt="" aria-hidden="true">
+      <div class="wrap hero__inner">
+        <span class="tag">Est. 2026</span>
+        <h1>Coming<br><span class="accent">Soon</span></h1>
+        <p class="hero__sub">OG Athlete Marketing &amp; NIL Consulting is building something for the athletes who do it right. The full site is on its way.</p>
+        <div class="hero__rule" aria-hidden="true"></div>
+        <p class="hero__domain">ognilmarketing.com</p>
+      </div>
+    </section>
+
+    <section class="mission" aria-labelledby="mission-heading">
+      <div class="wrap">
+        <span class="tag">Mission Statement</span>
+        <h2 id="mission-heading">Athlete first. <span class="accent">Every deal, every time.</span></h2>
+        <p><strong>OG Athlete Marketing and NIL Consulting</strong> empowers student-athletes to optimize their NIL potential. We structure highly personalized deals that maximize earnings, amplify their personal brand, and convert opportunities into tangible success. Each strategy is curated to the individual athlete, ensuring control and holistic long-term impact.</p>
+      </div>
+    </section>
+
+    <section class="athlete" aria-labelledby="athlete-heading">
+      <div class="wrap athlete__grid">
+        <div class="athlete__copy">
+          <span class="tag">Signature Athlete</span>
+          <p class="athlete__script">Signature Athlete</p>
+          <h2 id="athlete-heading">Julius Gillick</h2>
+          <p class="athlete__meta">RB</p>
+        </div>
+        <figure class="athlete__figure">
+          <img src="assets/julius.png" alt="Julius Gillick, running back, in uniform giving a shaka sign">
+        </figure>
+      </div>
+    </section>
+
+    <section class="strip" aria-label="Pages coming soon">
+      <div class="wrap">
+        <p class="strip__label">On the way</p>
+        <div class="strip__grid">
+          <a href="players.html"><span>Players</span><span>&rarr;</span></a>
+          <a href="clients-partners.html"><span>Clients &amp; Partners</span><span>&rarr;</span></a>
+          <a href="about.html"><span>About Us</span><span>&rarr;</span></a>
+          <a href="contact.html"><span>Contact</span><span>&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="footer__brand" href="index.html" aria-label="Home">
+        <img src="assets/og_boxed.png" alt="OG Athlete Marketing & NIL Consulting logo">
+      </a>
+      <ul class="footer__links">
+        <li><a href="players.html">Players</a></li>
+        <li><a href="clients-partners.html">Clients &amp; Partners</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer__helmet">
+        <img src="assets/helmet.png" alt="OG red football helmet">
+      </div>
+      <p class="footer__meta">&copy; 2026 OG Athlete Marketing &amp; NIL Consulting &nbsp;•&nbsp; <span class="accent">ognilmarketing.com</span></p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav__toggle');
+    const menu = document.getElementById('site-menu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+</body>
+</html>

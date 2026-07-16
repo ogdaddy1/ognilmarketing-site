@@ -1,0 +1,388 @@
+/* ============================================================
+   OG ATHLETE MARKETING & NIL CONSULTING — ognilmarketing.com
+   Brand colors (exact, sampled from brand kit):
+   Red      #DE3C4B
+   Charcoal #423E3E
+   Bone     #F0F2EF
+   White    #FFFFFF
+   ============================================================ */
+
+:root {
+  --red: #DE3C4B;
+  --ink: #423E3E;
+  --bone: #F0F2EF;
+  --white: #FFFFFF;
+  --display: "Anton", sans-serif;
+  --body: "Archivo", sans-serif;
+  --script: "Great Vibes", cursive;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+body {
+  font-family: var(--body);
+  background: var(--bone);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { width: min(1160px, 92%); margin: 0 auto; }
+
+/* ---------- Boxed label (from brand kit) ---------- */
+.tag {
+  display: inline-block;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.45em 0.9em;
+  background: transparent;
+}
+.tag--fill { background: var(--red); color: var(--white); }
+.tag--onink { background: var(--bone); }
+
+/* ---------- Navigation ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bone);
+  border-bottom: 3px solid var(--ink);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 1rem;
+}
+.nav__logo img { height: 40px; width: auto; }
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav__links a {
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 0.4em 0;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.nav__links a:hover,
+.nav__links a:focus-visible { border-bottom-color: var(--red); color: var(--red); }
+.nav__links a.is-active { border-bottom-color: var(--red); }
+.nav__toggle {
+  display: none;
+  background: none;
+  border: 2px solid var(--ink);
+  padding: 0.4em 0.7em;
+  font-family: var(--body);
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+  cursor: pointer;
+}
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+}
+.hero__watermark {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(62vw, 760px);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+}
+.hero__inner { position: relative; }
+.hero .tag { margin-bottom: 1.6rem; }
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(3.4rem, 10.5vw, 8.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.hero h1 .accent { color: var(--red); }
+.hero__sub {
+  margin-top: 1.6rem;
+  max-width: 34em;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 500;
+}
+.hero__rule {
+  width: 88px;
+  height: 6px;
+  background: var(--red);
+  margin-top: 2.2rem;
+}
+.hero__domain {
+  margin-top: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--red);
+}
+
+/* ---------- Mission band ---------- */
+.mission {
+  background: var(--ink);
+  color: var(--bone);
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+}
+.mission .tag { margin-bottom: 1.8rem; }
+.mission h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--white);
+  max-width: 22em;
+}
+.mission h2 .accent { color: var(--red); }
+.mission p {
+  margin-top: 1.6rem;
+  max-width: 46em;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 500;
+  color: var(--bone);
+}
+.mission strong { color: var(--red); font-weight: 800; }
+
+/* ---------- Signature athlete ---------- */
+.athlete {
+  position: relative;
+  padding: clamp(3.5rem, 7vw, 6rem) 0 0;
+  overflow: hidden;
+}
+.athlete__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+}
+.athlete__copy { padding-bottom: clamp(3rem, 6vw, 5.5rem); }
+.athlete__script {
+  font-family: var(--script);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  color: var(--red);
+  line-height: 1;
+  margin: 1.4rem 0 0.4rem;
+}
+.athlete h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+  line-height: 0.98;
+  color: var(--ink);
+}
+.athlete__meta {
+  margin-top: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--red);
+}
+.athlete__blurb {
+  margin-top: 1.4rem;
+  max-width: 30em;
+  font-weight: 500;
+}
+.athlete__figure {
+  position: relative;
+  align-self: end;
+}
+.athlete__figure::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  bottom: 0;
+  width: 78%;
+  height: 68%;
+  border: 3px solid var(--red);
+  z-index: 0;
+}
+.athlete__figure img {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  max-width: 100%;
+  max-height: min(78vh, 680px); /* vertical PNG: cap height, let width follow */
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* ---------- Coming pages strip ---------- */
+.strip {
+  background: var(--red);
+  color: var(--white);
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+.strip__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.strip a {
+  border: 2px solid var(--white);
+  padding: 1.1rem 1.2rem;
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.strip a span:last-child { font-family: var(--body); font-weight: 800; }
+.strip a:hover, .strip a:focus-visible { background: var(--white); color: var(--red); }
+.strip__label {
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ---------- Placeholder pages ---------- */
+.placeholder {
+  position: relative;
+  min-height: calc(100vh - 72px - 220px);
+  display: flex;
+  align-items: center;
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  overflow: hidden;
+}
+.placeholder .hero__watermark { width: min(70vw, 700px); }
+.placeholder h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  line-height: 0.98;
+  color: var(--ink);
+  margin-top: 1.4rem;
+}
+.placeholder h1 .accent { color: var(--red); }
+.placeholder p {
+  margin-top: 1.4rem;
+  max-width: 34em;
+  font-weight: 500;
+}
+.placeholder .btn { margin-top: 2rem; }
+
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 0.9em 1.6em;
+  border: 2px solid var(--red);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.btn:hover, .btn:focus-visible { background: transparent; color: var(--red); }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--ink);
+  color: var(--bone);
+  padding: 3rem 0 2.2rem;
+}
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer__brand img { height: 62px; width: auto; }
+.footer__helmet img { height: 74px; width: auto; }
+.footer__meta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.footer__meta .accent { color: var(--red); }
+.footer__links {
+  display: flex;
+  gap: 1.4rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.footer__links a {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+}
+.footer__links a:hover, .footer__links a:focus-visible { border-bottom-color: var(--red); color: var(--white); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .nav__toggle { display: block; }
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bone);
+    border-bottom: 3px solid var(--ink);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem 4%;
+  }
+  .nav__links.is-open { display: flex; }
+  .nav__links li { width: 100%; }
+  .nav__links a { display: block; padding: 0.9em 0; border-bottom: none; }
+  .strip__grid { grid-template-columns: 1fr 1fr; }
+  .athlete__grid { grid-template-columns: 1fr; }
+  .athlete__copy { padding-bottom: 0; }
+  .athlete__figure { margin-top: 2rem; }
+}
+@media (max-width: 520px) {
+  .strip__grid { grid-template-columns: 1fr; }
+  .footer__inner { justify-content: center; text-align: center; }
+}
