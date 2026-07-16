@@ -121,7 +121,13 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
   user-select: none;
 }
-.hero__inner { position: relative; }
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(1.6rem, 4vw, 3rem);
+}
+.hero__copy { position: relative; }
 .hero .tag { margin-bottom: 1.2rem; }
 .hero h1 {
   font-family: var(--display);
@@ -153,6 +159,45 @@ a:focus-visible, button:focus-visible {
   font-size: 0.8rem;
   color: var(--red);
 }
+.hero__athlete {
+  position: relative;
+  justify-self: center;
+  text-align: center;
+}
+.hero__athlete img {
+  width: auto;
+  max-width: 100%;
+  max-height: clamp(320px, 42vw, 620px); /* vertical PNG: larger, hero-scale feature */
+  margin: 0 auto;
+  object-fit: contain;
+}
+.hero__athlete figcaption {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.hero__athlete-script {
+  font-family: var(--script);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  color: var(--red);
+  line-height: 1;
+}
+.hero__athlete-name {
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem);
+  color: var(--ink);
+  line-height: 1;
+}
+.hero__athlete-meta {
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--red);
+}
 
 /* ---------- Mission band ---------- */
 .mission {
@@ -179,57 +224,6 @@ a:focus-visible, button:focus-visible {
   color: var(--bone);
 }
 .mission strong { color: var(--red); font-weight: 800; }
-
-/* ---------- Signature athlete ---------- */
-.athlete {
-  position: relative;
-  padding: clamp(1.6rem, 3.5vw, 2.4rem) 0;
-  background: var(--white);
-  border-top: 3px solid var(--ink);
-  border-bottom: 3px solid var(--ink);
-  overflow: hidden;
-}
-.athlete__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  gap: clamp(1.2rem, 4vw, 3rem);
-  align-items: center;
-}
-.athlete__script {
-  font-family: var(--script);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--red);
-  line-height: 1;
-  margin: 0 0 0.3rem;
-}
-.athlete h2 {
-  font-family: var(--display);
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  line-height: 0.98;
-  color: var(--ink);
-}
-.athlete__meta {
-  margin-top: 0.5rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  color: var(--red);
-}
-.athlete__figure {
-  position: relative;
-  align-self: center;
-  justify-self: center;
-}
-.athlete__figure img {
-  width: auto;
-  max-width: 100%;
-  max-height: clamp(220px, 32vw, 380px); /* vertical PNG: cap height, keep the whole section short */
-  margin: 0 auto;
-  object-fit: contain;
-}
 
 /* ---------- Coming pages strip ---------- */
 .strip {
@@ -363,12 +357,12 @@ a:focus-visible, button:focus-visible {
   .nav__links li { width: 100%; }
   .nav__links a { display: block; padding: 0.9em 0; border-bottom: none; }
   .strip__grid { grid-template-columns: 1fr 1fr; }
-  .athlete__grid {
+  .hero__grid {
     grid-template-columns: 1fr;
     text-align: center;
     justify-items: center;
   }
-  .athlete__figure { order: -1; }
+  .hero__athlete img { max-height: 62vw; }
 }
 @media (max-width: 520px) {
   .strip__grid { grid-template-columns: 1fr; }
