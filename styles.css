@@ -149,18 +149,19 @@ a:focus-visible, button:focus-visible {
 }
 .hero h1 .accent { color: var(--red); }
 .hero__sub {
-  margin-top: 1.1rem;
+  margin-top: 0.9rem;
   font-size: clamp(0.8rem, 1.5vw, 1.1rem);
   font-weight: 500;
+  line-height: 1.3;
 }
 .hero__rule {
   width: 48px;
   height: 5px;
   background: var(--red);
-  margin-top: 1.2rem;
+  margin-top: 1rem;
 }
 .hero__domain {
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -175,7 +176,7 @@ a:focus-visible, button:focus-visible {
   position: relative;
   flex: 1 1 auto;
   min-width: 0;
-  aspect-ratio: 1.4 / 1;
+  aspect-ratio: 2.1 / 1;
 }
 .hero__athlete img {
   width: 100%;
@@ -343,12 +344,13 @@ a:focus-visible, button:focus-visible {
   .nav__links li { width: 100%; }
   .nav__links a { display: block; padding: 0.9em 0; border-bottom: none; }
   .strip__grid { grid-template-columns: 1fr 1fr; }
-  .hero__athlete { aspect-ratio: 0.95 / 1; }
-}
-@media (max-width: 480px) {
-  .hero__athlete { aspect-ratio: 0.68 / 1; }
 }
 @media (max-width: 520px) {
   .strip__grid { grid-template-columns: 1fr; }
   .footer__inner { justify-content: center; text-align: center; }
+}
+@media (max-width: 600px) {
+  /* below this width the text column is taller than the zoomed-in crop;
+     top-align so Julius still bleeds flush with the nav instead of floating centered */
+  .hero { align-items: flex-start; }
 }
