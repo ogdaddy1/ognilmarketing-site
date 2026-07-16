@@ -109,7 +109,6 @@ a:focus-visible, button:focus-visible {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: clamp(420px, 58vh, 600px);
   display: flex;
   align-items: center;
 }
@@ -126,18 +125,24 @@ a:focus-visible, button:focus-visible {
 .hero__copy-wrap {
   position: relative;
   z-index: 2;
-  padding: clamp(2.4rem, 6vw, 4rem) 0 clamp(2.2rem, 5vw, 3.4rem);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  /* matches the site's .wrap gutter exactly, so the text stays aligned with the nav logo */
+  padding-left: max(4vw, calc((100vw - 1160px) / 2));
+  padding-right: clamp(0.6rem, 2.5vw, 1.5rem);
+  box-sizing: border-box;
 }
 .hero__copy {
   position: relative;
-  max-width: min(520px, 92%);
+  max-width: clamp(140px, 18vw, 235px);
 }
 .hero .tag { margin-bottom: 1.2rem; }
 .hero h1 {
   font-family: var(--display);
   font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(2.6rem, 8vw, 5.6rem);
+  font-size: clamp(1.85rem, 3.9vw, 3.15rem);
   line-height: 0.95;
   letter-spacing: 0.01em;
   color: var(--ink);
@@ -145,33 +150,32 @@ a:focus-visible, button:focus-visible {
 .hero h1 .accent { color: var(--red); }
 .hero__sub {
   margin-top: 1.1rem;
-  max-width: 34em;
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
   font-weight: 500;
 }
 .hero__rule {
-  width: 72px;
+  width: 48px;
   height: 5px;
   background: var(--red);
-  margin-top: 1.4rem;
+  margin-top: 1.2rem;
 }
 .hero__domain {
-  margin-top: 0.7rem;
+  margin-top: 0.6rem;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: clamp(0.62rem, 1.2vw, 0.8rem);
   color: var(--red);
 }
-/* Julius bleeds to the right, top, and bottom edges of the hero;
-   the section's overflow:hidden clips him at the mission boundary. */
+/* Julius bleeds to the right, top, and bottom edges of the hero, on the
+   same line as the copy at every width. A fixed aspect-ratio keeps his
+   crop identical on mobile and desktop; overflow:hidden clips him flush
+   with the mission section below. */
 .hero__athlete {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 52%;
-  z-index: 1;
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  aspect-ratio: 1.4 / 1;
 }
 .hero__athlete img {
   width: 100%;
@@ -339,18 +343,10 @@ a:focus-visible, button:focus-visible {
   .nav__links li { width: 100%; }
   .nav__links a { display: block; padding: 0.9em 0; border-bottom: none; }
   .strip__grid { grid-template-columns: 1fr 1fr; }
-  .hero {
-    flex-direction: column;
-    align-items: stretch;
-    min-height: auto;
-  }
-  .hero__copy-wrap { padding-bottom: 0; }
-  .hero__athlete {
-    position: relative;
-    top: auto; right: auto; bottom: auto;
-    width: 100%;
-    height: clamp(260px, 62vw, 420px);
-  }
+  .hero__athlete { aspect-ratio: 0.95 / 1; }
+}
+@media (max-width: 480px) {
+  .hero__athlete { aspect-ratio: 0.68 / 1; }
 }
 @media (max-width: 520px) {
   .strip__grid { grid-template-columns: 1fr; }
